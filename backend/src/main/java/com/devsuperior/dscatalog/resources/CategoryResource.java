@@ -1,5 +1,6 @@
 package com.devsuperior.dscatalog.resources;
 
+import com.devsuperior.dscatalog.dto.CategoryDto;
 import com.devsuperior.dscatalog.entities.Category;
 import com.devsuperior.dscatalog.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +22,8 @@ public class CategoryResource implements Serializable {
     private CategoryService service;
 
     @GetMapping
-    public ResponseEntity <List<Category>> findAll() {
-        List <Category> list = service.findAll();
+    public ResponseEntity <List<CategoryDto>> findAll() {
+        List <CategoryDto> list = service.findAll();
         return ResponseEntity.ok().body(list);
     }
 }
