@@ -39,4 +39,10 @@ public class CategoryResource implements Serializable {
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
         return ResponseEntity.created(uri).body(dto);
     }
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<CategoryDto> update (@PathVariable Long id, @RequestBody CategoryDto dto){
+        dto = service.update(id,dto);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
+        return ResponseEntity.ok().body(dto);
+    }
 }
